@@ -1,0 +1,10 @@
+<ng-container *ngIf="showNavbar">
+  <div class="navbar">
+    <a class="nav-link" routerLink="/accueil">Accueil</a>
+    <div>
+      <a class="nav-link" routerLink="/sign-in">Sign In</a>
+      <a class="nav-link" routerLink="/sign-up">Sign Up</a>
+    </div>
+  </div>
+</ng-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,31 @@
+<div class="container">
+    <a class="nav-link" routerLink="/sign-in">Logout</a>
+  <h2>IP Details</h2>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" class="mb-3">
+      <div class="input-group">
+          <input type="text" class="form-control" name="IpStr" [(ngModel)]="shodanData.ip_str" placeholder="Enter IP Address">
+          <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+          </div>
+      </div>
+  </form>
+
+  <div *ngIf="shodanData" class="card bg-light">
+      <div class="card-header">IP Informations :</div> <br><br>
+      <div class="card-body">
+          <p class="card-text">
+              <strong>ISP:</strong> {{ shodanData.isp }} <br>
+             
+              <strong>Country:</strong> {{ shodanData.country_name }} <br>
+              <strong>City:</strong> {{ shodanData.city }} <br>
+              <strong>Latitude:</strong> {{ shodanData.latitude }} <br>
+              <strong>Longitude:</strong> {{ shodanData.longitude }} <br>
+             
+              <strong>Region Code:</strong> {{ shodanData.region_code }} <br>
+              
+              <strong>Open Ports:</strong> <span *ngFor="let port of shodanData.ports">{{ port }} </span><br>
+              <strong>Hostnames:</strong> <span *ngFor="let hostname of shodanData.hostnames">{{ hostname }} </span>
+          </p>
+      </div>
+  </div>
+</div>

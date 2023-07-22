@@ -1,0 +1,67 @@
+<div class="container">
+  <br><br><br>
+  <h1>Here you can manage the users</h1>
+  <br><br>
+  <h3>Add User</h3>
+  <div class="user-container">
+    <a class="nav-link" routerLink="/sign-in">Logout</a>
+    <div class="users-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="Email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" name="password"  [(ngModel)]="user.password">
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" name="firstname"  [(ngModel)]="user.firstName">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" name="lastname"  [(ngModel)]="user.lastName">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" name="phone"  [(ngModel)]="user.phone">
+        </div>
+        <div class="form-group">
+          <label for="">Role</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="Role" value="admin" [(ngModel)]="user.role">
+              Admin
+            </label>
+            <label>
+              <input type="radio" name="Role" value="user" [(ngModel)]="user.role">
+              User
+            </label>
+            
+          </div>
+        </div>
+        <div class="form-group">
+          <button>Save</button>
+        </div>
+      </form> 
+    </div>
+    <br><br><br><br>
+    <h3>List of Users</h3>
+    <div class="users-grid">
+      <div (click)="fillTheBlanks(user)" class="users-row" *ngFor="let user of users">
+        <div class="users-row-details">
+          <span>First Name : {{user.firstName}}</span><br>
+          <span>Last Name : {{user.lastName}}</span><br>
+          <span>Email : {{user.email}}</span><br>
+          <span>Password : {{user.password}}</span><br>
+          <span>Phone : {{user.phone}}</span><br>
+          <span>Role : {{user.role}}</span><br>
+        </div>
+        <div class="users-row-action">
+          <a (click)="deleteUser(user.id)"><i class="fa-solid fa-trash-can">delete</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
